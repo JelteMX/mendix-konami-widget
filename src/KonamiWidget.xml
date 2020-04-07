@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<widget id="mendix.konamiwidget.KonamiWidget" pluginWidget="true" needsEntityContext="false" offlineCapable="true"
+        supportedPlatform="Web"
+        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
+    <name>Konami Widget</name>
+    <description>Do the Konami and be amazed</description>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAD/UlEQVR4Xu2Z30sUURTHv7vsauvKauYmaPWklIaFPvQQ9dBDYWFmrT8hgqLH3vRJykSi/yBfIqMQIt2sNCMsiAiCXrQINMhEDZUtNRNXN3fXiXPZmWbXWZsZB6WZOzDsMufOnXs+53vOvXPHBosfNov7Dw6AK8DiBHgKWFwAvAjyFOApYHECPAUsLgA+C/AU4ClgcQLyFLADoNPsaSEAWI2dkrMFL1+/eBuJRJxWEITD4QgfP1Z2BMAIRdv1vL93MhgMZgqCYPbos/jabDbB7XbPnzpxOpcc9j555p9YWQlvs0L0RR9TUpyhyvKqXQRg5+Ne/0Q4HE61IIA9awDUnKs3jEN1rc+QvroePjKkH+qks/sB6yumAA6AKyCxBhiZAobp1sCOeArwGqCzCAoCrSDjD5tt/XWTKWcBh8OBSCQCv9+PqqoqA7Nzc7racA3weDxYWFhQBeC/VoDT6UReXq4UlrGxcfZfroDGxgbJPj4+gcQ00QLgTGyxs2q3o7f6LCo6u2ETBDyt9WFLFkKtN1rQfLVFtS7zC/Ix8mUkrr0WAOs9aEsBkBLC4TAbn91uR3p6OhYXF7G6Sq/U7M2KRV4JgGp6KhuS+jIzM9a0prHMzf1k17Ozd6yxU/menZll11XXAFEBaWlpDACdBMPr9SIQCCAajSI1NZUBCIVCigDq6mvQdqtNpXvKzRoaG3C3/R4zfhoeZL+jX0fxq9yHxbpqHL3exK4VF5ZIdgrIYFEpvns8KHv/RrLrAqB29EoKmJubwWTgm9ouFNvl5exGVla2BOBDYQn7H41tX9EW1sHhQQlA68lKVIyNsy0fmqTldk0ALl2+iDu326VBJc75NA36fH/f9nLzcjE9NR3nhAigxleP4aHPcTYxmuJFiqD8KCjIR3dPFxIBfCwswRIAEnw6AA+AvQPvcKj0MFMA2X+T5AHQBkcmgB8pKWhYWdGWAsnC5na7EQwGVU2DIoBE5+RyTgZAbKMEYAHAGACao0gb881NuNJ6UwJAgMi+HUBO7AEXYr+qa0AyAC6XC8vLy5oAbCQHlABQSaYo0wYm7eLIU4AUEAEQoilbtA8N4EBRqTEKEJ1RsxIkBSgtobUAodST1wC6l5wUD++rPlD6yYug3N5TvB/XOjuYXVMN0DLIzWqbWDfkz5UDUBqPKQAkA90B4Pw/onAfANWBDdcALdHerJXgPgDxc8zaUYqQlADEbYsbuSO0WQC0BCUBANsWd/X190wtBZcyrPphhABKn8bMDoG+CiV+GhMVZOmPo1rSyFRtLfExdL2IcQCm0rMOZ7gCdEAz1S1cAaYKpw5nuAJ0QDPVLVwBpgqnDme4AnRAM9UtXAGmCqcOZyyvgD9SZXNj7qKVwwAAAABJRU5ErkJggg==</icon>
+    <properties>
+        <propertyGroup caption="General">
+            <propertyGroup caption="UI">
+                <property key="hintText" type="textTemplate" required="false">
+                    <caption>On Konami Text</caption>
+                    <description>Text to render when the Konami code is executed (optional)</description>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Code">
+                <property key="codeType" type="enumeration" defaultValue="default">
+                    <caption>Type</caption>
+                    <description>Choose the standard konami code or a custom one. Standard Konami is '↑ ↑ ↓ ↓ ← → ← → B A'</description>
+                    <enumerationValues>
+                        <enumerationValue key="default">Default</enumerationValue>
+                        <enumerationValue key="custom">Custom</enumerationValue>
+                    </enumerationValues>
+                </property>
+                <property key="customKonamiCode" type="object" isList="true" required="false">
+                    <caption>Custom codes</caption>
+                    <description>Create your own Konami code. This needs to be at least 4 keys long, otherwise it will use the standard Konami code.</description>
+                    <properties>
+                        <propertyGroup caption="Key">
+                            <property key="customKey" type="enumeration" defaultValue="up">
+                                <caption>Key</caption>
+                                <description />
+                                <enumerationValues>
+                                    <enumerationValue key="up">↑</enumerationValue>
+                                    <enumerationValue key="down">↓</enumerationValue>
+                                    <enumerationValue key="left">←</enumerationValue>
+                                    <enumerationValue key="right">→</enumerationValue>
+                                    <enumerationValue key="A">A</enumerationValue>
+                                    <enumerationValue key="B">B</enumerationValue>
+                                </enumerationValues>
+                            </property>
+                        </propertyGroup>
+                    </properties>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Timing">
+                <property key="resetDelay" type="integer" required="true" defaultValue="1000">
+                    <caption>Reset delay</caption>
+                    <description>The delay interval on which you need to start the input again. If you set it to 0 it will never reset the user input. Value should be in ms.</description>
+                </property>
+                <property key="restartDelay" type="integer" required="true" defaultValue="0">
+                    <caption>Restart delay</caption>
+                    <description>If you want to re-use the Konami code, you can set this value to a certain amount of ms. If this is set to 0, it will only run once</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+        <propertyGroup caption="Action">
+            <propertyGroup caption="Choose">
+                <property key="onKonamiAction" type="enumeration" defaultValue="mxAction">
+                    <caption>On Konami Code</caption>
+                    <description>Execute this when Konami code is entered</description>
+                    <enumerationValues>
+                        <enumerationValue key="mxAction">Mendix Action</enumerationValue>
+                        <enumerationValue key="comicSansMode">Comic Sans Mode (CSS)</enumerationValue>
+                        <enumerationValue key="upsideDownMode">Upside Down Mode (CSS)</enumerationValue>
+                    </enumerationValues>
+                </property>
+            </propertyGroup>
+            <propertyGroup caption="Mendix Action">
+                <property key="onKonamiMendixAction" type="action" required="false">
+                    <caption>Action</caption>
+                    <description>Action to execute when Konami code is entered succesfully.</description>
+                </property>
+            </propertyGroup>
+        </propertyGroup>
+    </properties>
+</widget>
